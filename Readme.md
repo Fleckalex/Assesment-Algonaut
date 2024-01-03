@@ -1,6 +1,6 @@
 # Llama2 Papers Chatbot
 
-The Llama2 Papers Chatbot is a conversational AI application that answers questions related to llama models using information from the Llama2 papers. It supports both a pre-trained DistilBERT-based question-answering model and the OpenAI GPT-3.5 Turbo engine.
+The Llama2 Papers Chatbot is a conversational AI application that answers questions related to llama models using information from the Llama2 papers. It supports the OpenAI GPT-3.5 Turbo engine.
 
 ## Features
 
@@ -19,7 +19,7 @@ The Llama2 Papers Chatbot is a conversational AI application that answers questi
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/llama2-chatbot.git
+    git clone https://github.com/Fleckalex/Assesment-Algonaut
     cd llama2-chatbot
     ```
 
@@ -38,3 +38,5 @@ The Llama2 Papers Chatbot is a conversational AI application that answers questi
 
 ## Usage
 
+```bash
+python Chatbot.py
