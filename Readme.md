@@ -40,3 +40,5 @@ The Llama2 Papers Chatbot is a conversational AI application that answers questi
 
 ```bash
 python Chatbot.py
+```
+Will initiate the prompt, ask questions regarding llama2, the provided answers are produced using information contained in llama2_papers.txt
