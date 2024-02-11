@@ -1,6 +1,6 @@
 import openai
 import os
-
+from openai import OpenAI
 def read_llama2_papers_from_file(file_path='llama2_papers.txt'):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -31,11 +31,14 @@ def build_llama_chatbot():
 
         # Create the prompt by combining user input and context
         prompt = f"User: {user_input}\nContext: {documents}\nChatbot:"
-
+        messages=[]
+        messages.append({"role": "user","content": user_input })
         # Make an API call to OpenAI GPT-3.5 Turbo
-        response = openai.Completion.create(
-            engine="text-davinci-003",  # Use the GPT-3.5 Turbo engine
-            prompt=prompt,
+
+
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # Use the GPT-3.5 Turbo engine
+            messages=messages,
             max_tokens=100,  # Adjust as needed
             n=1,
             stop=None,
@@ -43,13 +46,14 @@ def build_llama_chatbot():
         )
 
         # Extract the chatbot's response from the API response
-        chatbot_response = response['choices'][0]['text'].strip()
-
+        chatbot_response = response['choices'][0].message.content
+        messages.append({"role": "assistant","content": chatbot_response })
         # Print the chatbot's response
         print("Chatbot:", chatbot_response)
 
 # Set your OpenAI API key
 openai.api_key = os.getenv("openai_api_key") 
+
 
 # Example usage
 build_llama_chatbot()
